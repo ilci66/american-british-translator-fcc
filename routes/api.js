@@ -9,6 +9,6 @@ module.exports = function (app) {
   app.route('/api/translate')
     .post((req, res) => {
 
-      translator.americanToBritish('colorful')
+      translator.americanToBritish('mr. colorful')
     });
 };
