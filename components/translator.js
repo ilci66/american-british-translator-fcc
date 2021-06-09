@@ -102,8 +102,12 @@ class Translator {
   replaceAll(text, matchesMap){
     // make a regex out of the that matched in order to replace 
     const re = new RegExp(Object.keys(matchesMap).join("|"), "gi");
-
-    return text.replace(re, (word) => matchesMap[word.toLowerCase()]);
+    // console.log(re)
+    //second argument of replace can be function, this way it goes word by word inside the given texti find it in mathesMap and returns that word to replace the word in text
+    return text.replace(re, (word) => {
+      //gets very annoying when testing, keep it commented
+      // console.log(word, re)
+      return matchesMap[word.toLowerCase()]});
   }
 
   replaceAllHighlighted(text, matchesMap){

@@ -11,11 +11,12 @@ module.exports = function (app) {
       const { locale } = req.body;
       const { text } = req.body
       let translation;
-      if(text == ""){
-        return res.json({"error":"No text to translate"});
-      }
+
       if(!locale || text == undefined){
         return res.json({ error: 'Required field(s) missing' });
+      }
+      if(text == ""){
+        return res.json({"error": "No text to translate"});
       }
       if(locale != "american-to-british" && locale != "british-to-american"){
         return res.json({ error: 'Invalid value for locale field' });
